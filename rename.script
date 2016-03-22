@@ -1,0 +1,27 @@
+#!/bin/bash
+# This script will rename files based on inputs. This is primarily for removing spaces in file names, but can be used to rename any batch of files.
+# version 0.1 20160320 Walt Kilar
+#
+
+#filename="/var/tmp/filename
+
+echo "Hello, "$USER". This script will help you rename files."
+echo -n "Enter search parameters and press [ENTER]: "
+read param
+echo -n "Enter string you want replaced and press [ENTER]: "
+read input
+echo -n "Enter string you want to insert and press [ENTER]: "
+read output
+echo
+
+#grep -i "$input" "$output"
+
+echo "Original files:"
+ls $param
+
+for i in $param; do mv "$i" "`echo $i | sed "s/$input/$output/g"`";done
+echo "Modified files:"
+
+ls $param
+echo "Congratulations! $input has been renamed to $output for search parameters $param"
+

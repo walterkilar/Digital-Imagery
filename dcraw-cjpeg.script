@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script will convert Canon Raw CR2 files to compressed JPG files
+# version 0.1 20160321 Walt Kilar
+#echo "Hello, "$USER". This script will convert Canon Raw CR2 files into compressed JPG files. This script requires dcraw and cjpeg."
+#echo -n "What is your desired quality level for cjpeg [0-100]?"
+#read cjpegqual
+#for i in *.CR2; do dcraw -c -q 3 -a -w -H 5 -b 5 $input | cjpeg -quality $cjpegqual > $input.jpg; done
+for i in *.CR2; do dcraw -c -q 3 -a -w -H 5 -b 5 $i | cjpeg -quality 90 > $i.jpg; done
+#echo "Here are your compressed files: "
+ls $i
+#ls $input
+
